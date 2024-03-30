@@ -12,16 +12,11 @@ class ApplicationController < ActionController::Base
   helper_method :cart
 
   def enhanced_cart
-    p "cart"
-    p @cart
     @enhanced_cart ||= Product.where(id: cart.keys).map {|product| { product:product, quantity: cart[product.id.to_s] }}
   end
   helper_method :enhanced_cart
 
   def order_itemized
-    p "line_items"
-    p @line_items
-    p @line_item_ids
     @order_itemized ||= Product.where(id: @line_item_ids.keys).map {|product| { product:product, quantity: @line_item_ids[product.id.to_s] }}
   end
   helper_method :order_itemized
