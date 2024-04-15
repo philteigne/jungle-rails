@@ -84,4 +84,60 @@ RSpec.describe User, type: :model do
       )).not_to be_valid
     end
   end
+
+  describe '.authenticate_with_credentials' do
+    it 'returns a user if the provided credentials match a user in the database' do
+      @user = User.new(
+        first_name: "Test",
+        last_name: "Test",
+        email: "test@test.com",
+        password: "12345678",
+        password_confirmation: "12345678",
+      )
+
+      @user.save
+
+      username = "test@test.com"
+      password = "12345678"
+
+      expect(user = User.authenticate_with_credentials(username, password)).not_to be_nil
+    end
+
+    it 'does not return a user if the provided credentials have no matches in the database' do
+      expect(user = User.authenticate_with_credentials("test@test.com", "12345678")).to be_nil
+    end
+
+    it 'returns a user if the provided email has excess spaces but still matches in the database' do
+      @user = User.new(
+        first_name: "Test",
+        last_name: "Test",
+        email: "test@test.com",
+        password: "12345678",
+        password_confirmation: "12345678",
+      )
+
+      @user.save
+
+      username = "  test@test.com "
+      password = "12345678"
+
+      expect(user = User.authenticate_with_credentials(username, password)).not_to be_nil
+    end
+    it 'returns a user if the provided email has incorrect case but still matches in the database' do
+      @user = User.new(
+        first_name: "Test",
+        last_name: "Test",
+        email: "test@test.com",
+        password: "12345678",
+        password_confirmation: "12345678",
+      )
+
+      @user.save
+
+      username = "TeST@test.com"
+      password = "12345678"
+
+      expect(user = User.authenticate_with_credentials(username, password)).not_to be_nil
+    end
+  end
 end
