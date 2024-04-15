@@ -7,7 +7,7 @@ class User < ApplicationRecord
   /x
 
   def self.authenticate_with_credentials(email, password)
-    user = User.find_by_email(email)
+    user = User.find_by_email(email.strip.downcase)
     # If the user exists AND the password entered is correct return true.
     if user && user.authenticate(password)
       user
