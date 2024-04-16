@@ -1,5 +1,3 @@
-const configYargs = require("webpack-cli/bin/config/config-yargs");
-
 describe("Add to cart", () => {
   it('Load the home page', () => {
     cy.visit('/');

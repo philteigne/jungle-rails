@@ -61,19 +61,19 @@
           </ul>
         </li>
         <% if current_user %>
-          <li class="nav-link">
+          <li class="nav-link" data-test-id="current_user">
             <%= "#{current_user.first_name} #{current_user.last_name}" %>
           </li>
           <li class="nav-link px-0">|</li>
-          <li>
+          <li data-test-id="logout">
             <%= link_to "Logout", '/logout', class: "nav-link" %>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item" data-test-id="login">
             <%= link_to 'Login', '/login', class: "nav-link" %>
           </li>
           <li class="nav-link px-0">|</li>
-          <li class="nav-item">
+          <li class="nav-item" data-test-id="signup">
             <%= link_to 'Signup', '/signup', class: "nav-link" %>
           </li>
         <% end %>
