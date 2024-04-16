@@ -4,11 +4,11 @@
   </header>
 
   <%= form_tag '/login' do %>
-    <div class="form-group mb-3 w-25">
+    <div class="form-group mb-3 w-25" data-test-id="login_email">
       <label>Email Address</label>
       <%= email_field_tag :email, "", class: "form-control" %>
     </div>
-    <div class="form-group mb-3 w-25">
+    <div class="form-group mb-3 w-25" data-test-id="login_password">
       <label>Password</label>
       <%= password_field_tag :password, "", class: "form-control" %>
     </div>
