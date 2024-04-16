@@ -3,6 +3,6 @@ describe("Selects individual product", () => {
     cy.visit('/');
   });
   it('Clicks on product and loads details page', () => {
-    cy.get('[alt="Scented Blade"]').click();
+    cy.get('.products article').eq(1).click();
   });
 })
