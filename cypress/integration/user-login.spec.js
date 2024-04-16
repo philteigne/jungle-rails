@@ -8,15 +8,18 @@ describe("Selects individual product", () => {
   });
 
   it('Clicks on Login', () => {
-    cy.get('[data-test-id=login]').click();
+    cy.get('[data-test-id="login"]').click();
   });
   it('Successfully logs user in', () => {
     cy.get('[data-test-id=login_email]').click({force: true}).type("philteigne@gmail.com");
     cy.get('[data-test-id=login_password]').click({force: true}).type("12345678");
     cy.get('.btn').contains('Submit').click();
 
-    cy.get('[data-test-id="current_user"]').should('have.value', "Phil Teigne");
+    cy.get('[data-test-id="current_user"]').contains("Phil Teigne");
   });
+  it('Logs out', () => {
+    cy.get('[data-test-id="logout"]').click();
+  })
   
   it('Clicks on signup page', () => {
     cy.get('[data-test-id=signup]').click();
@@ -29,6 +32,6 @@ describe("Selects individual product", () => {
     cy.get('[data-test-id=password_confirmation] input').click({force: true}).type('12345678');
     cy.get('.btn').contains('Submit').click();
 
-    cy.get('[data-test-id="current_user"]').should('have.value', "Test Test");
+    cy.get('[data-test-id="current_user"]').contains("Test Test");
   });
 });
