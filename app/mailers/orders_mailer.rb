@@ -6,7 +6,7 @@ class OrdersMailer < ApplicationMailer
     @user = params[:user]
     @order = params[:order]
     @enhanced_cart = params[:enhanced_cart]
-    @url = 'http://example.com/login'
+    @url = 'http://localhost:3000'
     mail(to: @user.email, subject: 'Your Jungle Book Order Summary')
   end
 end
