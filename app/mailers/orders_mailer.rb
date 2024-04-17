@@ -1,5 +1,5 @@
 class OrdersMailer < ApplicationMailer
-  default from: 'no-reply@jungle.com'
+  default from: 'philippe.teigne@gmail.com'
   layout 'mailer'
 
   def order_email

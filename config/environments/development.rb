@@ -79,9 +79,9 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
   address:         'smtp.gmail.com',
   port:            587,
-  domain:          'gmail.com',
-  user_name:       '<username>',
-  password:        '<password>',
+  domain:          'mail.google.com',
+  user_name:       ENV['GMAIL_USER'],
+  password:        ENV['GMAIL_APP_PASS'],
   authentication:  'plain',
   enable_starttls: true,
   open_timeout:    5,
@@ -89,5 +89,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_options = { from: 'no-reply@jungle.com' }
+  config.action_mailer.default_options = { from: 'philippe.teigne@gmail.com' }
+
+  config.action_mailer.logger = ActiveSupport::Logger.new(STDOUT)
+  config.action_mailer.logger.level = Logger::DEBUG
 end
