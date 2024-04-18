@@ -1,4 +1,4 @@
-class Rating < ApplicationRecord
+class Review < ApplicationRecord
 
   validates :product_id, presence: true
   validates :users_id, presence: true

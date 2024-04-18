@@ -6,20 +6,8 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @ratings = Rating.where(product_id: params[:id])
-    @rating = Rating.new
+    @reviews = Review.where(product_id: params[:id])
+    @review = Review.new
   end
 
-  def create
-    @ratings = Rating.create(rating_params)
-  end
-
-  private
-
-  def rating_params
-    params.require(:rating).permit(
-      :rating,
-      :description
-    )
-  end
 end

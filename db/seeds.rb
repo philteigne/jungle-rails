@@ -236,23 +236,23 @@ User.create!({
 })
 
 
-## RATINGS
+## REVIEWS
 
-Rating.create!({
+Review.create!({
   product_id: 1,
   users_id: 1,
   description: "I love my new plant!",
   rating: 5
 })
 
-Rating.create!({
+Review.create!({
   product_id: 1,
   users_id: 2,
   description: "Wow what a plant!",
   rating: 4
 })
 
-Rating.create!({
+Review.create!({
   product_id: 2,
   users_id: 2,
   description: "Could be better",

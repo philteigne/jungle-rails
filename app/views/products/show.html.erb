@@ -20,7 +20,7 @@
     </div>
   </article>
   <div class="col-sm-6 col-sm-offset-1">
-      <%= form_for [@product, @rating] do |form| %>
+      <%= form_for [@product, @review] do |form| %>
 
         <div class="form-group">
           <%= form.label :rating %>
@@ -43,8 +43,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @ratings.each do |rating| %>
-          <%= render 'rating', rating: rating[:rating], description: rating[:description], users_id: rating[:users_id] %>
+        <% @reviews.each do |review| %>
+          <%= render 'review', rating: review[:rating], description: review[:description], users_id: review[:users_id] %>
         <% end %>
       </tbody>
     </table>
