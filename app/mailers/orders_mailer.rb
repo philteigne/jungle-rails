@@ -3,7 +3,11 @@ class OrdersMailer < ApplicationMailer
   layout 'mailer'
 
   def order_email
-    @user = params[:user]
+    if params[:user]
+      @user = params[:user]
+    else
+      @user = User.find(1)
+    end
     @order = params[:order]
     @enhanced_cart = params[:enhanced_cart]
     @url = 'http://localhost:3000'
