@@ -1,11 +1,4 @@
-<tr>
-  <td>
-    <p><%= rating %>/5</p>
-  </td>
-  <td>
-    <p><%= User.find(users_id).first_name %> <%= User.find(users_id).last_name %>:</p>
-  </td>
-  <td>
-    <p><%= description %></p>
-  </td>
-</tr>
+<h4><%= User.find(users_id).first_name %> <%= User.find(users_id).last_name %></h4>
+<a><%= rating %>/5</a>
+<p><%= description %></p>
+<br>

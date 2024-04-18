@@ -1,8 +1,12 @@
 class ReviewsController < ApplicationController
 
   def create
-    @reviews = Review.create(review_params)
-    redirect_to products_url
+    @review = Review.new(review_params)
+    if @review.save
+      redirect_to product_path(@review.product_id), notice: 'Review was successfully created.'
+    else
+      redirect_to product_path(@review.product_id), notice: 'Could not save review'
+    end
   end
 
   private
@@ -10,7 +14,9 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(
       :rating,
-      :description
+      :description,
+      :product_id,
+      :users_id
     )
   end
 end
