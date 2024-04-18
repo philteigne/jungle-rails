@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :about, only: [:index]
 
   resources :products, only: [:index, :show]
+  resources :products do
+    resources :ratings, only: [:create]
+  end
   resources :categories, only: [:show]
 
   resource :cart, only: [:show] do
